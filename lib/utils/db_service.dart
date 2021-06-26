@@ -42,4 +42,9 @@ abstract class DB{
 
   static Future<int> insert(String table, DBBaseModel model) async =>
       await _db.insert(table, model.toMap());
+
+  static Future<List<Map<String, dynamic>>> rawQuery(String sql) async =>
+      _db.rawQuery(sql);
+
+  static Future<int> rawInsert(String sql) async => await _db.rawInsert(sql);
 }
